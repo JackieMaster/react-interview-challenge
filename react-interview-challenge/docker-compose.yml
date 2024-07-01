@@ -1,0 +1,31 @@
+version: "1"
+services:
+  db:
+    container_name: challenge_db
+    build: ./postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      PGDATA: ${PGDATA}
+    volumes:
+       - ./init-db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+  api:
+    container_name: challenge_api
+    build: ./api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      PORT: ${PORT}
+    ports:
+      - "3000:3000"
+  ui:
+    container_name: challenge_ui
+    build: ./ui
+    ports:
+      - "3001:3001"
+volumes:
+    db:
+      external: true

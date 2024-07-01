@@ -1,0 +1,35 @@
+.app {
+  margin-top: 200px;
+}
+
+.app-title {
+  text-align: center;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+  margin-left: 20px;
+}
+
+.dashboard-header button {
+  height: 38px;
+  margin-top: 22px;
+  margin-right: 20px;
+}
+
+.account-dashboard {
+  padding-bottom: 5px;
+}
+
+.account-dashboard h2 {
+  text-align: center;
+}
+
+.withdraw-card h3, .deposit-card h3 {
+  text-align: center;
+}
